@@ -1,0 +1,14 @@
+* {
+  margin: 3px;
+}
+
+.header {
+  padding: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+.score-high-score {
+  padding: 5px;
+}
