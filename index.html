@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Quiz</title>
+    <title>Quick Quiz</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
   <body>
     <header>
-      <div class="score">
-        <div class="high-score">
-          <a href="#view-high-score" target="_blank">High Scores</a>
-        </div>
-        <div id="timer">Timer</div>
+      <div class="nav-holder">
+        <ul>
+          <li>
+            <a class="btn" href="./highscores.html" target="_blank">
+              High Scores</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="counter"></div>
+        Timer
+        <input type="number" id="seconds" placeholder="seconds" />
       </div>
     </header>
-    <div></div>
+    <div class="container">
+      <div id="home">
+        <h1>Quick Quiz</h1>
+        <div>Content</div>
+        <div>
+          <a href="start" class="start_button">Start</a>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
