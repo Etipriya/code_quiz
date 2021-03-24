@@ -8,27 +8,30 @@ const mainEL = document.querySelector("main");
 
 let secondsLeft = 59;
 
-const setTime = function(){
+const setTime = function () {
   let isStartQuiz;
   let isCountdown;
   let isStop;
-  timeEL isStartQuiz = setInterval(setTime,60000);
-  timeEL isCountdown =setInterval (decrease, 60000-1);
-  timeEL isStop = setInterval(stop, 0);
+  isStartQuiz = setInterval(setTime, 60000);
+  isCountdown = setInterval(decrease, 60000 - 1);
+  isStop = setInterval(stop, 0);
 
-  const callback =function(){
-
+  const callback = function () {
+    setInterval.startBtn = isStartQuiz();
+  };
+  if (timer === 0) {
+    showform();
   }
-  const timerInterval = setInterval(callback,1000);
-}
-const sendMessage = function(){
-
-}
+  const timerInterval = setInterval(callback, 60000);
+};
+const sendMessage = function () {
+  String = (callback, "DONE");
+};
 setTime();
 
 //Declare an event when click on the start button
 startBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  introSection.style.display="none";
+  introSection.style.display = "none";
 }
