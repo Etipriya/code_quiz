@@ -27,8 +27,13 @@ header {
   padding: 2rem;
 }
 
-.content {
+.time {
   font-size: 20px;
   color: black;
   text-align: right;
+}
+
+.container {
+  text-align: center;
+  border-radius: (50, 50);
 }
