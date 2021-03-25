@@ -1,19 +1,16 @@
-// Declare characters
-
 // Declare a click event on high score
 
 //Declare the start of timer from 60sec
-const timeEL = document.querySelector(".time");
-const mainEL = document.querySelector("main");
+const time = document.querySelector(".time");
 
-let secondsLeft = 59;
+let secondsLeft = 60;
 
 const setTime = function () {
   let isStartQuiz;
   let isCountdown;
   let isStop;
-  isStartQuiz = setInterval(setTime, 60000);
-  isCountdown = setInterval(decrease, 60000 - 1);
+  isStartQuiz = setInterval(setTime, 1000);
+  isCountdown = setInterval(decrease, 000 - 1);
   isStop = setInterval(stop, 0);
 
   const callback = function () {

@@ -9,25 +9,36 @@
   </head>
   <body>
     <header class="header">
-      <div> 
+      <div>
         <a href="highscores.html" target="_blank">High Scores</a>
       </div>
-      <div class="timer">
-        Time:<span id="timer">0</span>
-      </div>
+      <div class="timer">Time:<span id="timer">0</span></div>
     </header>
-    <div class="container">
-        <h1>Quick Quiz</h1>
-        <div>This quiz is based on simple question's. It will enhance your skills
-          in HTML, CSS and javascript. Please try to be patient and try to solve 
-          all the question's. GET READY!!
-        </div>
-        <div id="start-quiz">
-          <a href="start" class="start_button">Start</a>
-        </div>
+    <div id="container">
+      <h1>Quick Coding Quiz</h1>
+      <br />
+      <div>
+        This quiz is based on simple question's. It will enhance your skills in
+        HTML, CSS and javascript. Try to answer the following code-related
+        questions within the time limit.GET READY!!
+      </div>
+      <br />
+      <div>
+        <button id="start-button" class="start-button">Start</button>
       </div>
     </div>
 
+    <div id="question">
+      <h3>How many heading elements are there in HTML?</h3>
+      <ul>
+        <li>
+          <button>3 headings</button>
+          <button>4 headings</button>
+          <button>5 headings</button>
+          <button>6 headings</button>
+        </li>
+      </ul>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
