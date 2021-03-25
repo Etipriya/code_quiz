@@ -2,33 +2,24 @@
 
 //Declare the start of timer from 60sec
 const time = document.querySelector(".time");
-
+const startButton = document.getElementById("start-button");
 let secondsLeft = 60;
 
-const setTime = function () {
-  let isStartQuiz;
-  let isCountdown;
-  let isStop;
-  isStartQuiz = setInterval(setTime, 1000);
-  isCountdown = setInterval(decrease, 000 - 1);
-  isStop = setInterval(stop, 0);
-
+const startTimer = function () {
   const callback = function () {
-    setInterval.startBtn = isStartQuiz();
+    secondsLeft -= 1;
   };
-  if (timer === 0) {
-    showform();
-  }
-  const timerInterval = setInterval(callback, 60000);
+  const timerInterval = setInterval(callback, 1000);
+  return timerInterval;
 };
-const sendMessage = function () {
-  String = (callback, "DONE");
-};
-setTime();
 
 //Declare an event when click on the start button
-startBtn.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
   introSection.style.display = "none";
+  //timer
+  startTimer();
 }
+
+//Timer
