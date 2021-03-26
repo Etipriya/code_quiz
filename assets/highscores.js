@@ -2,18 +2,6 @@
 const goBackBtn = document.getElementById("go-back");
 const goBackBtn = document.getElementById("clear");
 
-//Declare function for clear button
-const clear = () => {
-  localStorage.clear();
-  function clearText() {
-    let clear;
-    clear = document.getElementById("clear");
-    if (clear.firstChild.nodeValue === click) {
-    clear.firstChild.nodeValue = "clear-screen";
-    } else {
-    clear.firstChild.nodeValue = "stay";
-    }
-};
 // get high score
 const getFromLocalStorage = () => {
   const highScores = localStorage.getItem("highScores");
@@ -64,6 +52,19 @@ const resultsTable = () => {
 const onload = () => {
   const highScores = getFromLocalStorage();
   renderHighScoresTable(highScores);
+};
+
+//Declare function for clear button
+const clear = () => {
+  localStorage.clear();
+  function clearText() {
+    let clear;
+    clear = document.getElementById("clear");
+    if (clear.firstChild.nodeValue === click) {
+    clear.firstChild.nodeValue = "clear-screen";
+    } else {
+    clear.firstChild.nodeValue = "stay";
+    }
 };
 
 goBackBtn.addEventListener("click", go - back);
