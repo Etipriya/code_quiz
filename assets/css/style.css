@@ -11,17 +11,19 @@ body {
 }
 
 .header {
-  padding: 20px;
+  /* padding: 20px; */
+  font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(248, 248, 252);
   /* position: relative; */
 }
 
 .timer {
-  font-size: 20px;
+  font-size: 25px;
   color: black;
   text-align: right;
-  display: inline-block;
+  padding: 10px;
+  /* display: inline-block; */
 }
 
 #container {
@@ -29,16 +31,24 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 20px;
   margin: 2px;
   text-align: center;
-  background-color: cornflowerblue;
+  background-color: rgb(152, 100, 237);
+}
+
+#quiz-intro {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.quiz-intro {
+  padding: 2px;
 }
 
 .start-button {
   font: large;
 }
 #start-button {
-  size: 20rem;
+  font-size: large;
 }
