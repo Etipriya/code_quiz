@@ -1,3 +1,0 @@
-// Declare characters
-
-let numberArray[];

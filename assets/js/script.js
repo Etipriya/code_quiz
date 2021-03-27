@@ -80,11 +80,11 @@ const verifyChoice = Event => {
 // Develop quiz container
 const createQuestion = question => {
   const questionContainer = document.createElement("div");
-  questionsContainer.setAttribute("id", "questions-container");
+  questionContainer.setAttribute("id", "questions-container");
   questionContainer.setAttribute("class", "questions-container");
   questionContainer.setAttribute("date-answer", question.correctAnswer);
 
-  const h2 = document.createElement(h2);
+  const h2 = document.createElement("h2");
   h2.textContent = question.question;
 
   const choices = createChoices(question.choices);
@@ -98,12 +98,14 @@ const createQuestion = question => {
 };
 
 const renderQuestion = () => {
-  if (index < question.length) {
+  if (index < questions.length) {
     const questionsContainer = createQuestion(questions[index]);
 
     //append
     quizContainer.appendChild(questionsContainer);
   } else {
+    const formContainer = formContainerDiv();
+    bodyElement.appendChild(formContainer);
   }
 };
 
@@ -136,18 +138,17 @@ const formContainerDiv = () => {
 
   // High Score
 
-  submitButton.addEventListener("click");
+  const submitForm = event => {
+    event.parentDefault();
 
-  function(event){
-    event.parentDefault()
-
-    if(inputInitialsDiv.value === ""){
+    if (inputInitialsDiv.value === "") {
       alert("Please enter your name");
       return;
     }
     saveScore(inputInitialsDiv.value, secondsRemaining);
     window.location = "highScores.html";
   };
+  submitButton.addEventListener("click", submitForm);
 };
 
 //Timer
@@ -156,13 +157,11 @@ const startTimer = () => {
     timerSpanElement.textContent = timerValue;
     timerValue -= 1;
 
-    if(questionIndex === questions.length){
+    if (questionIndex === questions.length) {
       clearInterval(timer);
     }
-    if(timerValue < 0){
+    if (timerValue < 0) {
       clearInterval(timer);
-      //const formContainer = formContainerDiv();
-      //bodyElement.appendChild(formContainer);
     }
   };
 
@@ -170,11 +169,11 @@ const startTimer = () => {
 };
 
 //Remove Start Quiz
-const startQuiz = () =>{
+const startQuiz = () => {
   quizIntroElement.remove();
 
   renderQuestion();
 
   startTimer();
-}
+};
 startButtonElement.addEventListener("click", startQuiz);

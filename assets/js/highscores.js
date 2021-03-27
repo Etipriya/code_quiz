@@ -61,21 +61,12 @@ const clear = () => {
     let clear;
     clear = document.getElementById("clear");
     if (clear.firstChild.nodeValue === click) {
-    clear.firstChild.nodeValue = "clear-screen";
+      clear.firstChild.nodeValue = "clear-screen";
     } else {
-    clear.firstChild.nodeValue = "stay";
+      clear.firstChild.nodeValue = "stay";
     }
+  }
 };
-
 goBackBtn.addEventListener("click", go - back);
 clearBtn.addEventListener("click", clear);
 window.addEventListener("load", onload);
-
-//function clearText() {
-// let clear;
-// clear = document.getElementById("clear");
-// if (clear.firstChild.nodeValue === click) {
-// clear.firstChild.nodeValue = "clear-screen";
-// } else {
-// clear.firstChild.nodeValue = "stay";
-// }
