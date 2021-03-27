@@ -58,9 +58,9 @@ const createChoices = choices => {
 };
 
 // Verify the choices event
-const verifyChoice = Event => {
-  const target = Event.target;
-  const currentTarget = Event.currentTarget;
+const verifyChoice = event => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
 
   if (target.matches("button")) {
     const answer = target.getAttribute("data-answer");
@@ -85,7 +85,7 @@ const createQuestion = question => {
   questionContainer.setAttribute("date-answer", question.correctAnswer);
 
   const h2 = document.createElement("h2");
-  h2.textContent = question.question;
+  h2.textContent = question.title;
 
   const choices = createChoices(question.choices);
 
@@ -93,16 +93,16 @@ const createQuestion = question => {
   questionContainer.appendChild(choices);
   quizContainer.append(questionContainer);
 
-  questionsContainer.addEventListener("click", verifyChoice);
-  return questionsContainer;
+  questionContainer.addEventListener("click", verifyChoice);
+  return questionContainer;
 };
 
 const renderQuestion = () => {
   if (index < questions.length) {
-    const questionsContainer = createQuestion(questions[index]);
+    const quesContainer = createQuestion(questions[index]);
 
     //append
-    quizContainer.appendChild(questionsContainer);
+    quizContainer.appendChild(quesContainer);
   } else {
     const formContainer = formContainerDiv();
     bodyElement.appendChild(formContainer);
@@ -154,18 +154,16 @@ const formContainerDiv = () => {
 //Timer
 const startTimer = () => {
   const timerTick = () => {
-    timerSpanElement.textContent = timerValue;
-    timerValue -= 1;
-
-    if (questionIndex === questions.length) {
-      clearInterval(timer);
-    }
-    if (timerValue < 0) {
-      clearInterval(timer);
-    }
+    timerElement.textContent = timeValue;
+    timeValue -= 1;
   };
-
   const timer = setInterval(timerTick, 1000);
+  if (index === questions.length) {
+    clearInterval(timer);
+  }
+  if (timeValue < 0) {
+    clearInterval(timer);
+  }
 };
 
 //Remove Start Quiz
