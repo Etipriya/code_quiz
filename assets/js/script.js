@@ -69,7 +69,7 @@ const verifyChoice = event => {
     if (answer === correctAnswer) {
       index += 1;
 
-      quizContainer.removeChild(document.getElementById("questions"));
+      quizContainer.remove(document.getElementById("questions"));
       renderQuestion();
     } else {
       alert("Incorrect answer");
