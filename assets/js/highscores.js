@@ -1,6 +1,6 @@
 //Declare global data
 const goBackBtn = document.getElementById("go-back");
-const goBackBtn = document.getElementById("clear");
+const clearBtn = document.getElementById("clear");
 
 // get high score
 const getFromLocalStorage = () => {
@@ -67,6 +67,6 @@ const clear = () => {
     }
   }
 };
-goBackBtn.addEventListener("click", go - back);
-clearBtn.addEventListener("click", clear);
-window.addEventListener("load", onload);
+goBackBtn.addEventListener("click", goBackBtn);
+clearBtn.addEventListener("click", clearBtn);
+//window.addEventListener("load", onload);

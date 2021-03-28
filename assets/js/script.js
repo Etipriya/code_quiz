@@ -69,7 +69,7 @@ const verifyChoice = event => {
     if (answer === correctAnswer) {
       index += 1;
 
-      quizContainer.removeChild(document.getElementById("questions-container"));
+      quizContainer.removeChild(document.getElementById("questions"));
       renderQuestion();
     } else {
       alert("Incorrect answer");
@@ -82,14 +82,14 @@ const createQuestion = question => {
   const questionContainer = document.createElement("div");
   questionContainer.setAttribute("id", "questions-container");
   questionContainer.setAttribute("class", "questions-container");
-  questionContainer.setAttribute("date-answer", question.correctAnswer);
+  questionContainer.setAttribute("data-answer", question.correctAnswer);
 
-  const h2 = document.createElement("h2");
-  h2.textContent = question.title;
+  const h1 = document.createElement("h1");
+  h1.textContent = question.title;
 
   const choices = createChoices(question.choices);
 
-  questionContainer.appendChild(h2);
+  questionContainer.appendChild(h1);
   questionContainer.appendChild(choices);
   quizContainer.append(questionContainer);
 
@@ -102,10 +102,11 @@ const renderQuestion = () => {
     const quesContainer = createQuestion(questions[index]);
 
     //append
-    quizContainer.appendChild(quesContainer);
+    quizContainer.append(quesContainer);
   } else {
-    const formContainer = formContainerDiv();
-    bodyElement.appendChild(formContainer);
+    //const formContainer = formContainerDiv();
+    //bodyElement.appendChild(formContainer);
+    alert("Done");
   }
 };
 
@@ -168,6 +169,7 @@ const startTimer = () => {
 
 //Remove Start Quiz
 const startQuiz = () => {
+  const startContainer = document.getElementById("quiz-intro");
   quizIntroElement.remove();
 
   renderQuestion();
