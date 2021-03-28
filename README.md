@@ -30,11 +30,11 @@ To view the high score, one should click on theHighScores Button on the top left
 
 - Home page
 
-![image](.\assets/images/starting-page.png)
+![image](\assets/images/starting-page.png)
 
-- First pagecontainingfirst question of the quiz
+- First page containing first question of the quiz
 
-![image](.\assets/images/first-question.png)
+![image](\assets/images/first-question.png)
 
 ## Link to the deployed application
 
