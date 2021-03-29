@@ -33,13 +33,13 @@ const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
 const timerElement = document.getElementById("timer");
 const secondsRemaining = document.querySelector("#seconds-remaining");
-const questionContainerDiv = document.createElement("div");
+const questionContainer = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
 
-let timeValue = 60;
+let timeValue = 5;
 let index = 0;
 
-//Declare div and button choices through
+//Declare div and button choices
 const createChoices = choices => {
   const parentDiv = document.createElement("div");
 
@@ -69,7 +69,8 @@ const verifyChoice = event => {
     if (answer === correctAnswer) {
       index += 1;
 
-      quizContainer.remove(document.getElementById("questions"));
+      //quizContainer.remove(document.getElementById("questions"));
+      quizContainer.removeChild(questionContainer);
       renderQuestion();
     } else {
       alert("Incorrect answer");
@@ -79,7 +80,6 @@ const verifyChoice = event => {
 
 // Develop quiz container
 const createQuestion = question => {
-  const questionContainer = document.createElement("div");
   questionContainer.setAttribute("id", "questions-container");
   questionContainer.setAttribute("class", "questions-container");
   questionContainer.setAttribute("data-answer", question.correctAnswer);
@@ -91,7 +91,7 @@ const createQuestion = question => {
 
   questionContainer.appendChild(h1);
   questionContainer.appendChild(choices);
-  quizContainer.append(questionContainer);
+  quizContainer.appendChild(questionContainer);
 
   questionContainer.addEventListener("click", verifyChoice);
   return questionContainer;
@@ -102,7 +102,7 @@ const renderQuestion = () => {
     const quesContainer = createQuestion(questions[index]);
 
     //append
-    quizContainer.append(quesContainer);
+    quizContainer.appendChild(quesContainer);
   } else {
     //const formContainer = formContainerDiv();
     //bodyElement.appendChild(formContainer);
@@ -158,18 +158,22 @@ const startTimer = () => {
     timerElement.textContent = timeValue;
     timeValue -= 1;
   };
+
   const timer = setInterval(timerTick, 1000);
+  console.log(index);
+  console.log(questions.length);
   if (index === questions.length) {
     clearInterval(timer);
   }
-  if (timeValue < 0) {
+  if (timeValue <= 0) {
+    console.log(timeValue);
     clearInterval(timer);
   }
 };
 
 //Remove Start Quiz
 const startQuiz = () => {
-  const startContainer = document.getElementById("quiz-intro");
+  //const startContainer = document.getElementById("quiz-intro");
   quizIntroElement.remove();
 
   renderQuestion();
