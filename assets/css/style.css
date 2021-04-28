@@ -71,3 +71,23 @@ body {
   background-color: rgb(95, 160, 122);
   cursor: pointer;
 }
+
+.form-container {
+  padding: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.score {
+  font-size: 1.2rem;
+}
+
+.score-form {
+  margin-top: 2rem;
+}
+
+.score-form .btn {
+  padding: 0.4rem;
+}
