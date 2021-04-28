@@ -46,6 +46,36 @@ body {
   font-size: 1.2rem;
 }
 
+.question-container {
+  padding: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.question {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.answers {
+  list-style: none;
+}
+
+.answers li {
+  padding: 1rem;
+  width: 50%;
+  background-color: cadetblue;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.answers li:hover {
+  background-color: rgb(95, 160, 144);
+  cursor: pointer;
+}
+
 /* #container {
   position: absolute;
   top: 50%;
