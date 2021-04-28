@@ -185,24 +185,29 @@
 // array of questions
 const questions = [
   {
-    title: "What is the question 1",
-    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    title: "What are javascript Data Types",
+    options: ["Number", "String", "Boolean", "Object"],
+    answer: "Object",
   },
   {
-    title: "What is the question 2",
-    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    title: "Which company developed Javascript?",
+    options: ["Microsoft", "Facebook", "Apple", "Netscape"],
+    answer: "Netscape",
   },
   {
-    title: "What is the question 3",
-    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    title: "Break statement exists in which loop?",
+    options: ["Current loop", "Html loop", "JS loop", "Previous loop"],
+    answer: "Current loop",
   },
   {
-    title: "What is the question 4",
-    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    title: "Which keyword is used to print the text in the screen?",
+    options: ["console.log", "document.write", "let index", "parentDiv.append"],
+    answer: "document.write",
   },
   {
-    title: "What is the question 5",
-    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    title: "What boolean operators can be used in Javascript?",
+    options: ["&&", "(!!)", "(¬¬)", "$"],
+    answer: "&&",
   },
 ];
 
@@ -212,19 +217,27 @@ const main = document.getElementById("quiz-app");
 
 const renderNextQuestion = event => {
   const target = event.target;
+  const currentTarget = event.currentTarget;
 
   if (target.matches("li")) {
-    currentQuestionIndex++;
+    const option = target.getAttribute("data-option");
+    const answer = currentTarget.getAttribute("data-answer");
 
-    const questionContainer = document.getElementById("start-quiz-container");
-    questionContainer.remove();
+    if (option === answer) {
+      currentQuestionIndex++;
 
-    if (currentQuestionIndex < questions.length) {
-      const nextQuestion = questions[currentQuestionIndex];
+      const questionContainer = document.getElementById("start-quiz-container");
+      questionContainer.remove();
 
-      renderQuestion(nextQuestion);
+      if (currentQuestionIndex < questions.length) {
+        const nextQuestion = questions[currentQuestionIndex];
+
+        renderQuestion(nextQuestion);
+      } else {
+        renderForm();
+      }
     } else {
-      renderForm();
+      console.log("handle wrong response");
     }
   }
 };
@@ -241,17 +254,22 @@ const renderQuestion = () => {
 
   const ul = document.createElement("ul");
   ul.setAttribute("class", "answers");
+  ul.setAttribute("data-answer", question.answer);
 
   const li1 = document.createElement("li");
+  li1.setAttribute("data-option", question.options[0]);
   li1.textContent = question.options[0];
 
   const li2 = document.createElement("li");
+  li2.setAttribute("data-option", question.options[1]);
   li2.textContent = question.options[1];
 
   const li3 = document.createElement("li");
+  li3.setAttribute("data-option", question.options[2]);
   li3.textContent = question.options[2];
 
   const li4 = document.createElement("li");
+  li4.setAttribute("data-option", question.options[3]);
   li4.textContent = question.options[3];
 
   ul.append(li1, li2, li3, li4);
