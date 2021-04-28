@@ -212,11 +212,12 @@ const renderNextQuestion = event => {
   const target = event.target;
 
   if (target.matches("li")) {
-    if (currentQuestionIndex < questions.length) {
-      const questionContainer = document.getElementById("start-quiz-container");
-      questionContainer.remove();
+    currentQuestionIndex++;
 
-      currentQuestionIndex++;
+    const questionContainer = document.getElementById("start-quiz-container");
+    questionContainer.remove();
+
+    if (currentQuestionIndex < questions.length) {
       const nextQuestion = questions[currentQuestionIndex];
 
       renderQuestion(nextQuestion);
