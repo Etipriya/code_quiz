@@ -1,10 +1,3 @@
-* {
-  box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   padding: 0;
   margin: 0;
@@ -16,8 +9,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 1rem;
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 25px; */
+  /* font-family: Arial, Helvetica, sans-serif; */
   background-color: rgb(248, 248, 252);
 }
 
@@ -28,9 +21,29 @@ body {
 .timer {
   font-size: 1.5rem;
   color: black;
-  text-align: right;
-  padding: 10px;
-  /* display: inline-block; */
+}
+
+.start-quiz-container {
+  padding: 0.5rem;
+  /* border: 1px solid black; */
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.info {
+  padding: 2rem;
+}
+
+.btn {
+  padding: 0.5em;
+  background-color: coral;
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 #container {
