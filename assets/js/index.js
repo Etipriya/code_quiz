@@ -206,17 +206,35 @@ const questions = [
   },
 ];
 
-const currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
+
+const renderNextQuestion = event => {
+  const target = event.target;
+
+  if (target.matches("li")) {
+    if (currentQuestionIndex < questions.length) {
+      const questionContainer = document.getElementById("start-quiz-container");
+      questionContainer.remove();
+
+      currentQuestionIndex++;
+      const nextQuestion = questions[currentQuestionIndex];
+
+      renderQuestion(nextQuestion);
+    } else {
+      console.log("render from here");
+    }
+  }
+};
 
 //will render a question container for a given question
 const renderQuestion = () => {
   const questionContainer = document.createElement("div");
   questionContainer.setAttribute("class", "question-container");
-  questionDiv.textContent = question.title;
+  questionContainer.setAttribute("id", "question-container");
 
   const questionDiv = document.createElement("div");
   questionDiv.setAttribute("class", "question");
-  questionDiv.textContent = "What is the question?";
+  questionDiv.textContent = question.title;
 
   const ul = document.createElement("ul");
   ul.setAttribute("class", "answers");
@@ -240,15 +258,17 @@ const renderQuestion = () => {
   const main = document.getElementById("quiz-app");
   const startQuizContainer = document.getElementById("start-quiz-container");
 
-  startQuizContainer.remove();
+  if (startQuizContainer) {
+    startQuizContainer.remove();
+  }
 
   main.append(questionContainer);
+
+  ul.addEventListener("click", renderNextQuestion);
 };
 
 //function called when you clicked on start quiz button
 const startQuiz = () => {
-  console.log("button clicked ");
-
   renderQuestion(questions[currentQuestionIndex]);
 };
 
