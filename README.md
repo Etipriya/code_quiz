@@ -38,4 +38,4 @@ To view the high score, one should click on theHighScores Button on the top left
 
 ## Link to the deployed application
 
-https://github.com/Etipriya/code_quiz
+https://etipriya.github.io/code_quiz/
