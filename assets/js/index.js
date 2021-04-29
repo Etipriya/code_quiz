@@ -306,6 +306,7 @@ const renderForm = () => {
 
   const input = document.createElement("input");
   input.setAttribute("type", "text");
+  input.setAttribute("id", "initials-input");
 
   const button = document.createElement("button");
   button.setAttribute("class", "btn");
@@ -315,6 +316,8 @@ const renderForm = () => {
   formContainer.append(h2, scoreDiv, form);
 
   main.append(formContainer);
+
+  form.addEventListener("submit", onSubmit);
 };
 
 const renderGameOver = () => {
@@ -329,6 +332,36 @@ const renderGameOver = () => {
 
   div.append(h2);
   main.append(div);
+};
+
+//Get from Local storage
+const getFromLocalStorage = () => {
+  const localStorageData = JSON.parse(localStorage.getItem("highscores"));
+
+  if (localStorageData) {
+    return localStorageData;
+  } else {
+    return [];
+  }
+};
+
+//Define onSubmit function
+const onSubmit = event => {
+  event.preventDefault();
+
+  const initialsInput = document.getElementById("initials-input");
+
+  const initials = initialsInput.value;
+  const scoreObject = {
+    user: initials,
+    score: timerValue,
+  };
+
+  const highscores = getFromLocalStorage();
+
+  highscores.push(scoreObject);
+
+  localStorage.setItem("highscores", JSON.stringify(highscores));
 };
 
 //Declaring start function
