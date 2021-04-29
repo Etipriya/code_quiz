@@ -211,6 +211,7 @@ const questions = [
   },
 ];
 
+let timerValue = questions.length * 10;
 let currentQuestionIndex = 0;
 
 const main = document.getElementById("quiz-app");
@@ -318,8 +319,26 @@ const renderForm = () => {
   main.append(formContainer);
 };
 
+//Declaring start function
+const startTimer = () => {
+  const timerSpan = document.getElementById("timer");
+  timerSpan.textContent = timerValue;
+
+  const callback = () => {
+    if (timerValue > 0) {
+      timerValue = timerValue - 1;
+      timerSpan.textContent = timerValue;
+    } else {
+      clearInterval(timer);
+    }
+  };
+
+  const timer = setInterval(callback, 1000);
+};
+
 //function called when you clicked on start quiz button
 const startQuiz = () => {
+  startTimer();
   renderQuestion(questions[currentQuestionIndex]);
 };
 
