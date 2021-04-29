@@ -1,72 +1,95 @@
-//Declare global data
-const goBackBtn = document.getElementById("go-back");
-const clearBtn = document.getElementById("clear");
+const main = document.getElementById("high-scores-container");
 
-// get high score
-const getFromLocalStorage = () => {
-  const highScores = localStorage.getItem("highScores");
-  if (highScores) {
-    return highScores;
-  } else {
-    return [];
-  }
-};
-//render high score
-const renderHighScoresTable = highScores => {
-  if (highScores.length === 0) {
-    const resultEmpty = noResults();
-    bodyElement.appendChild(resultEmpty);
-  } else {
-    const showResults = resultsTable();
-    bodyElement.appendChild(showResults);
-  }
+const renderHighScores = () => {
+  const highscores = getFromLocalStorage();
+
+  const ul = document.createElement("ul");
+  ul.setAttribute("class", "highscores");
+
+  const renderListItem = each => {
+    console.log("each");
+    const li = document.createElement("li");
+    li.textContent = `${each.user} - ${each.score}`;
+
+    ul.append(li);
+  };
+
+  highscores.forEach(renderListItem);
+
+  main.append(ul);
 };
 
-// shows no result element
-const noResults = () => {
-  const noResultsDiv = document.createElement("div");
-  noResultsDiv.setAttribute("id", "results-div");
+window.addEventListener("load", renderHighScores);
 
-  const noResultsH2 = document.createElement("h2");
-  noResultsH2.textContent = "No results to show right now";
+// //Declare global data
+// const goBackBtn = document.getElementById("go-back");
+// const clearBtn = document.getElementById("clear");
 
-  noResultsDiv.appendChild(noResultsH2);
+// // get high score
+// const getFromLocalStorage = () => {
+//   const highScores = localStorage.getItem("highScores");
+//   if (highScores) {
+//     return highScores;
+//   } else {
+//     return [];
+//   }
+// };
+// //render high score
+// const renderHighScoresTable = highScores => {
+//   if (highScores.length === 0) {
+//     const resultEmpty = noResults();
+//     bodyElement.appendChild(resultEmpty);
+//   } else {
+//     const showResults = resultsTable();
+//     bodyElement.appendChild(showResults);
+//   }
+// };
 
-  return noResultsDiv;
-};
+// // shows no result element
+// const noResults = () => {
+//   const noResultsDiv = document.createElement("div");
+//   noResultsDiv.setAttribute("id", "results-div");
 
-//Form a table to show the results of the quiz
-const resultsTable = () => {
-  const tableDiv = document.createElement("div");
-  tableDiv.setAttribute("id", "table");
+//   const noResultsH2 = document.createElement("h2");
+//   noResultsH2.textContent = "No results to show right now";
 
-  const resultDiv = document.createElement("div");
-  resultDiv.setAttribute("id", "results");
-  resultDiv.textContent = getFromLocalStorage();
+//   noResultsDiv.appendChild(noResultsH2);
 
-  tableDiv.appendChild(resultsDiv);
+//   return noResultsDiv;
+// };
 
-  return tableDiv;
-};
+// //Form a table to show the results of the quiz
+// const resultsTable = () => {
+//   const tableDiv = document.createElement("div");
+//   tableDiv.setAttribute("id", "table");
 
-const onload = () => {
-  const highScores = getFromLocalStorage();
-  renderHighScoresTable(highScores);
-};
+//   const resultDiv = document.createElement("div");
+//   resultDiv.setAttribute("id", "results");
+//   resultDiv.textContent = getFromLocalStorage();
 
-//Declare function for clear button
-const clear = () => {
-  localStorage.clear();
-  function clearText() {
-    let clear;
-    clear = document.getElementById("clear");
-    if (clear.firstChild.nodeValue === click) {
-      clear.firstChild.nodeValue = "clear-screen";
-    } else {
-      clear.firstChild.nodeValue = "stay";
-    }
-  }
-};
-goBackBtn.addEventListener("click", goBackBtn);
-clearBtn.addEventListener("click", clearBtn);
-//window.addEventListener("load", onload);
+//   tableDiv.appendChild(resultsDiv);
+
+//   return tableDiv;
+// };
+
+// const onload = () => {
+//   const highScores = getFromLocalStorage();
+//   renderHighScoresTable(highScores);
+// };
+
+// //Declare function for clear button
+// const clear = () => {
+//   localStorage.clear();
+//   function clearText() {
+//     let clear;
+//     clear = document.getElementById("clear");
+//     if (clear.firstChild.nodeValue === click) {
+//       clear.firstChild.nodeValue = "clear-screen";
+//     } else {
+//       clear.firstChild.nodeValue = "stay";
+//     }
+//   }
+// };
+// goBackBtn.addEventListener("click", goBackBtn);
+// clearBtn.addEventListener("click", clearBtn);
+// //window.addEventListener("load", onload);
