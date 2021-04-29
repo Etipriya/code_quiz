@@ -166,6 +166,8 @@ const onSubmit = event => {
   highscores.push(scoreObject);
 
   localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  window.location.href = "../../highscores.html";
 };
 
 //Declaring start function
