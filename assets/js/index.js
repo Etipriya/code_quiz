@@ -234,11 +234,9 @@ const renderNextQuestion = event => {
         const nextQuestion = questions[currentQuestionIndex];
 
         renderQuestion(nextQuestion);
-      } else {
-        renderForm();
       }
     } else {
-      console.log("handle wrong response");
+      timerValue = timerValue - 5;
     }
   }
 };
@@ -298,7 +296,7 @@ const renderForm = () => {
 
   const scoreDiv = document.createElement("div");
   scoreDiv.setAttribute("class", "score");
-  scoreDiv.textContent = "Your score is 25";
+  scoreDiv.textContent = `Your score is ${timerValue}`;
 
   const form = document.createElement("form");
   form.setAttribute("class", "score-form");
@@ -319,17 +317,40 @@ const renderForm = () => {
   main.append(formContainer);
 };
 
+const renderGameOver = () => {
+  const questionContainer = document.getElementById("start-quiz-container");
+  questionContainer.remove();
+
+  const div = document.createElement("div");
+  div.setAttribute("class", "game-over-container");
+
+  const h2 = document.createElement("h2");
+  h2.textContent = "Game Over!!";
+
+  div.append(h2);
+  main.append(div);
+};
+
 //Declaring start function
 const startTimer = () => {
   const timerSpan = document.getElementById("timer");
   timerSpan.textContent = timerValue;
 
   const callback = () => {
-    if (timerValue > 0) {
+    // if timer is active and game is still active
+    if (timerValue > 0 && currentQuestionIndex !== questions.length) {
       timerValue = timerValue - 1;
       timerSpan.textContent = timerValue;
-    } else {
+    }
+
+    if (currentQuestionIndex !== questions.length) {
+      clearInterval("timer");
+      renderForm();
+    }
+
+    if (timerValue <= 0 && currentQuestionIndex !== questions.length) {
       clearInterval(timer);
+      renderGameOver();
     }
   };
 

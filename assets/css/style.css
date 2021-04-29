@@ -91,3 +91,11 @@ body {
 .score-form .btn {
   padding: 0.4rem;
 }
+
+.game-over-container {
+  padding: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+  text-align: center;
+}
