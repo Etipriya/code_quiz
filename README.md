@@ -30,11 +30,19 @@ To view the high score, one should click on theHighScores Button on the top left
 
 - Home page
 
-![image](\assets/images/starting-page.png)
+![image](./assets/images/home.png)
 
 - First page containing first question of the quiz
 
-![image](\assets/images/first-question.png)
+![image](./assets/images/question1.png)
+
+- Highscores page
+
+![image](./assets/images/highscores.png)
+
+- Game over
+
+![image](./assets/images/gameover.png)
 
 ## Link to the deployed application
 
