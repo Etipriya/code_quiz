@@ -42,7 +42,7 @@ const renderNextQuestion = event => {
     if (option === answer) {
       currentQuestionIndex++;
 
-      const questionContainer = document.getElementById("start-quiz-container");
+      const questionContainer = document.getElementById("question-container");
       questionContainer.remove();
 
       if (currentQuestionIndex < questions.length) {
@@ -57,7 +57,7 @@ const renderNextQuestion = event => {
 };
 
 //will render a question container for a given question
-const renderQuestion = () => {
+const renderQuestion = question => {
   const questionContainer = document.createElement("div");
   questionContainer.setAttribute("class", "question-container");
   questionContainer.setAttribute("id", "question-container");
@@ -136,7 +136,7 @@ const renderForm = () => {
 };
 
 const renderGameOver = () => {
-  const questionContainer = document.getElementById("start-quiz-container");
+  const questionContainer = document.getElementById("question-container");
   questionContainer.remove();
 
   const div = document.createElement("div");
@@ -167,7 +167,7 @@ const onSubmit = event => {
 
   localStorage.setItem("highscores", JSON.stringify(highscores));
 
-  window.location.href = "../../highscores.html";
+  window.location.href = "highscores.html";
 };
 
 //Declaring start function
@@ -182,8 +182,8 @@ const startTimer = () => {
       timerSpan.textContent = timerValue;
     }
 
-    if (currentQuestionIndex !== questions.length) {
-      clearInterval("timer");
+    if (currentQuestionIndex === questions.length) {
+      clearInterval(timer);
       renderForm();
     }
 

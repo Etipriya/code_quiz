@@ -9,7 +9,6 @@ const renderHighScores = () => {
   ul.setAttribute("id", "highscores");
 
   const renderListItem = each => {
-    console.log("each");
     const li = document.createElement("li");
     li.textContent = `${each.user} - ${each.score}`;
 
